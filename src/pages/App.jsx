@@ -4,6 +4,7 @@ import { Canvas, extend, useFrame, useLoader } from '@react-three/fiber';
 import { shaderMaterial } from '@react-three/drei';
 import glsl from 'babel-plugin-glsl/macro';
 import '../index.css';
+import { Link } from 'react-router-dom';
 
 const WaveShaderMaterial = shaderMaterial(
   // Uniform
@@ -87,6 +88,7 @@ const App = () => {
   return (
     <>
       <h1>POMADA MODELADORA</h1>
+      <Link to="/gradient">To gradient</Link>
       <Scene />
     </>
   );
