@@ -6,6 +6,7 @@
     "@react-three/drei": "^7.12.3",
     "@react-three/fiber": "^7.0.7",
     "babel-plugin-glsl": "^1.0.0",
+    "glsl-hsl2rgb": "^1.1.0",
     "glsl-noise": "^0.0.0",
     "glslify": "^7.1.1",
     "react": "^17.0.2",
