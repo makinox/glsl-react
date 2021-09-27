@@ -17,7 +17,8 @@ const GradientShaderMaterial = shaderMaterial(
     varying vec2 vUv;
 
     void main() {
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);  
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
   `,
   // Fragment Shader
@@ -34,8 +35,8 @@ const GradientShaderMaterial = shaderMaterial(
       vec2 center = vUv - 0.5;
       center.x *= uAspect;
 
-      float n = noise(vec3(center * 1.0, uTime * 0.5));
-      vec3 color = hsl2rgb(0.6 + n * 0.9, 0.5, 0.5);
+      float n = noise(vec3(center * 0.8, uTime * 0.5));
+      vec3 color = hsl2rgb(0.13 + n * 0.1, 1.0, 0.65 * n);
 
       gl_FragColor = vec4(color, 1.0); 
     }
@@ -51,7 +52,7 @@ const Wave = () => {
   return (
     <mesh>
       <planeBufferGeometry args={[0.2, 0.1, 1, 1]} />
-      <gradientShaderMaterial uColor={'tomato'} ref={ref} uAspect={512 / 512} />
+      <gradientShaderMaterial uColor={'tomato'} ref={ref} uAspect={window.innerWidth / window.innerHeight} />
     </mesh>
   );
 };
