@@ -88,7 +88,12 @@ const App = () => {
   return (
     <>
       <h1>POMADA MODELADORA</h1>
-      <Link to="/gradient">To gradient</Link>
+      <Link style={{ position: 'absolute', zIndex: 1, color: '#fff' }} to="/gradient">
+        To gradient
+      </Link>
+      <Link style={{ position: 'absolute', zIndex: 1, color: '#fff', left: '10%' }} to="/light">
+        To light
+      </Link>
       <Scene />
     </>
   );

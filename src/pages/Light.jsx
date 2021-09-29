@@ -5,7 +5,7 @@ import { shaderMaterial } from '@react-three/drei';
 import glsl from 'babel-plugin-glsl/macro';
 import { Link } from 'react-router-dom';
 
-const GradientShaderMaterial = shaderMaterial(
+const LightShaderMaterial = shaderMaterial(
   // Uniform
   {
     uTime: 0,
@@ -43,7 +43,7 @@ const GradientShaderMaterial = shaderMaterial(
   `
 );
 
-extend({ GradientShaderMaterial });
+extend({ LightShaderMaterial });
 
 const Wave = () => {
   const ref = useRef();
@@ -52,7 +52,7 @@ const Wave = () => {
   return (
     <mesh>
       <planeBufferGeometry args={[0.2, 0.1, 1, 1]} />
-      <gradientShaderMaterial uColor={'tomato'} ref={ref} uAspect={window.innerWidth / window.innerHeight} />
+      <lightShaderMaterial uColor={'tomato'} ref={ref} uAspect={window.innerWidth / window.innerHeight} />
     </mesh>
   );
 };
@@ -70,6 +70,9 @@ const Light = () => {
     <>
       <Link style={{ position: 'absolute', zIndex: 1, color: '#fff' }} to="/">
         To root
+      </Link>
+      <Link style={{ position: 'absolute', zIndex: 1, color: '#fff', left: '10%' }} to="/gradient">
+        To gradient
       </Link>
       <Scene />
     </>

@@ -71,6 +71,9 @@ const Gradient = () => {
       <Link style={{ position: 'absolute', zIndex: 1, color: '#fff' }} to="/">
         To root
       </Link>
+      <Link style={{ position: 'absolute', zIndex: 1, color: '#fff', left: '10%' }} to="/light">
+        To light
+      </Link>
       <Scene />
     </>
   );
